@@ -5,95 +5,39 @@ var Alanzoka = document.querySelector(".titulo");
 Alanzoka.textContent = "Alanzoka Nutrição";
 subtitulo.textContent = "Meus Pacientes";
 
-//acessar a tag tr - paciente Paulo
+//acessar a tag tr - paciente Paulo e as demais
 
-var paciente = document.querySelector("#primeiro-paciente");
-var TdPeso = paciente.querySelector(".info-peso");
-var peso = TdPeso.textContent;
+var pacientes = document.querySelectorAll(".paciente");
+for(var i = 0; i < pacientes.length; i++){
+    var paciente = pacientes[i];
 
+    var TdAltura = paciente.querySelector(".info-altura");
+    var altura = TdAltura.textContent;
 
-var TdAltura = paciente.querySelector(".info-altura");
-var altura = TdAltura.textContent;
+    //acessar a tag tr - paciente João
 
-//acessar a tag tr - paciente João
+    var TdPeso = paciente.querySelector(".info-peso");
+    var peso = TdPeso.textContent;
 
-var paciente = document.querySelector("#segundo-paciente");
-var TdPeso = paciente.querySelector(".info-peso");
-var peso = textContent;
+    //acessar a tag tr - paciente Tatiana
+    var imc = peso / (altura * altura);
 
+    var PesoValido = true;
+    var AlturaValida = true;
 
-var TdAltura = paciente.querySelector(".info-altura");
-var altura = textContent;
+    if (PesoValido && AlturaValida){
+        //acessa e altera o imc
+    var TdImc = paciente.querySelector(".info-imc");
+    TdImc.textContent = imc;
+    }
 
+    if(peso <= 0 || peso >= 1000){
+        PesoValido = false;
+        TdImc.textContent = "Peso Inválido";
+    }
 
-//acessar a tag tr - paciente Erica
-
-var paciente = document.querySelector("#terceiro-paciente");
-var TdPeso = paciente.querySelector(".info-peso");
-var peso = textContent;
-
-
-var TdAltura = paciente.querySelector(".info-altura");
-var altura = textContent;
-
-
-//acessar a tag tr - paciente Douglas
-
-var paciente = document.querySelector("#quarto-paciente");
-var TdPeso = paciente.querySelector(".info-peso");
-var peso = textContent;
-
-
-var TdAltura = paciente.querySelector(".info-altura");
-var altura = textContent;
-
-
-//acessar a tag tr - paciente Tatiana
-
-var paciente = document.querySelector("#quinto-paciente");
-var TdPeso = paciente.querySelector(".info-peso");
-var peso = textContent;
-
-
-var TdAltura = paciente.querySelector(".info-altura");
-var altura = textContent;
-
-var PesoValido = true;
-var AlturaValida = true;
-
-if (PesoValido && AlturaValida){
-    //acessa e altera o imc
-var imc = peso / (altura * altura);
-
-var tdImc = paciente.querySelector(".info-imc");
-TdImc.textContent = imc;
+    if(altura <= 0 || altura >= 4.00){
+        AlturaValida = false;
+        TdImc.textContent = "Altura Inválida";
+    }
 }
-
-if(peso <= 0 || peso >= 1000){
-    console.log("Peso Inválido");
-    PesoValido = false;
-    tdImc.textContent = "Peso Inválido";
-}
-
-if(altura <= 0 || altura >= 4.00){
-    console.log("Altura Inválida");
-    AlturaValida = false;
-    tdImc.textContent = "Altura Inválida";
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
