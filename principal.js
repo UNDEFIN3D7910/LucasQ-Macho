@@ -28,12 +28,13 @@ for(var i = 0; i < pacientes.length; i++){
     if (PesoValido && AlturaValida){
         //acessa e altera o imc
     var TdImc = paciente.querySelector(".info-imc");
-    TdImc.textContent = imc;
+    TdImc.textContent = imc.toFixed(1);
     }
 
     if(peso <= 0 || peso >= 1000){
         PesoValido = false;
         TdImc.textContent = "Peso Inválido";
+        paciente.style.backgroundColor = "orange";
     }
 
     if(altura <= 0 || altura >= 4.00){
